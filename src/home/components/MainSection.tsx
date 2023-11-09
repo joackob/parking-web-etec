@@ -5,12 +5,21 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
+import {useEffect} from "react"
 
 const MainSection = () => {
   const title = "Vos queres crecer.\n Nosotros te queremos ayudar";
   const subtitle =
     "Crea una web con plantillas impecables, fácil edición y sin codificación.";
   const sm = useMediaQuery("min-width(600px)");
+
+  useEffect(()=>{
+    var map = L.map('map').setView([51.505, -0.09], 13);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+  }, [])
 
   return (
     <Container
@@ -26,8 +35,8 @@ const MainSection = () => {
         }}
         gridTemplateRows="auto"
         gridTemplateAreas={{
-          xs: "'.' '.' 'title' 'subtitle' 'btn'",
-          sm: "'. img' 'title img' 'subtitle img' 'btn img' '. img'",
+          xs: "'map' 'map' 'map' 'title map' 'subtitle map' 'btn map' '. map' 'title' 'subtitle' 'btn'",
+          sm: "'. map' 'title map' 'subtitle map' 'btn map' '. map'",
         }}
         columnGap={{
           xs: 0,
@@ -81,14 +90,12 @@ const MainSection = () => {
         </Box>
 
         <Box
-          gridArea={"img"}
+          gridArea={"map"}
           sx={{
-            backgroundImage: `url("https://picsum.photos/1200/800")`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
+            height: "100%"
           }}
-        />
+          id="map"
+        ></Box>
       </Box>
     </Container>
   );
