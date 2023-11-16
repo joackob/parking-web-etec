@@ -7,6 +7,11 @@ import {
 } from "@mui/material";
 import { useEffect } from "react"
 
+const markers = [
+  [-34.66862144106868, -58.44470682452406],
+  [-34.674458865941574, -58.45956389327844]
+]
+
 const MainSection = () => {
   const title = "Vos queres crecer.\n Nosotros te queremos ayudar";
   const subtitle =
@@ -14,11 +19,20 @@ const MainSection = () => {
   const sm = useMediaQuery("min-width(600px)");
 
   useEffect(() => {
-    var map = L.map('map').setView([51.505, -0.09], 13);
+    var map = L.map('map').setView([-34.67993187278591, -58.450775099059996], 13);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
+
+    markers.forEach(marca => {
+
+      L.marker(marca).addTo(map)
+        .bindPopup('A pretty CSS popup.<br> Easily customizable.')
+        .openPopup();
+
+    })
+
   }, [])
 
   return (
