@@ -5,7 +5,7 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import {useEffect} from "react"
+import { useEffect } from "react"
 
 const MainSection = () => {
   const title = "Vos queres crecer.\n Nosotros te queremos ayudar";
@@ -13,12 +13,12 @@ const MainSection = () => {
     "Crea una web con plantillas impecables, fácil edición y sin codificación.";
   const sm = useMediaQuery("min-width(600px)");
 
-  useEffect(()=>{
+  useEffect(() => {
     var map = L.map('map').setView([51.505, -0.09], 13);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-  }).addTo(map);
+    }).addTo(map);
   }, [])
 
   return (

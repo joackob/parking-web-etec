@@ -13,8 +13,8 @@ const CustomerSuportSection = () => {
       <Image
         src="https://picsum.photos/1200/800"
         alt="Demo de una web dedicada a la indumentaria"
-        height="800px"
-        width="1200px"
+        height={800}
+        width={1200}
       />
     </CardSection>
   );

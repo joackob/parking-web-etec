@@ -13,26 +13,26 @@ const TemplateCustomSection = () => {
       <Grid container spacing={2}>
         <Grid item xs={12} md={4}>
           <Image
-            src="https://picsum.photos/800/1200"
+            src="https://.photos/800/1200"
             alt="Demo de una web dedicada a la indumentaria"
-            height="1200px"
-            width="800px"
+            height={1200}
+            width={800}
           />
         </Grid>
         <Grid item xs={12} md={4}>
           <Image
             src="https://picsum.photos/800/1200"
             alt="Demo de una web dedicada a la indumentaria"
-            height="1200px"
-            width="800px"
+            height={1200}
+            width={800}
           />
         </Grid>
         <Grid item xs={12} md={4}>
           <Image
-            src="https://picsum.photos/800/1200"
+            src="https://.photos/800/1200"
             alt="Demo de una web dedicada a la indumentaria"
-            height="1200px"
-            width="800px"
+            height={1200}
+            width={800}
           />
         </Grid>
       </Grid>
