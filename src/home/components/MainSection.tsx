@@ -6,6 +6,9 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { useEffect } from "react"
+import { ButtonGroup } from '@mui/material';
+import { Fab } from '@mui/material';
+import NavigationIcon from '@mui/icons-material/Navigation';
 
 const markers = [
   [-34.66862144106868, -58.44470682452406],
@@ -35,7 +38,11 @@ const MainSection = () => {
 
   }, [])
 
+
+
   return (
+
+
     <Container
       sx={{
         background: "none",
@@ -49,7 +56,7 @@ const MainSection = () => {
         }}
         gridTemplateRows="auto"
         gridTemplateAreas={{
-          xs: "'map' 'map' 'map' 'title map' 'subtitle map' 'btn map' '. map' 'title' 'subtitle' 'btn'",
+          xs: "'map' 'Fav' 'ButtonGroup' 'btn'  ",
           sm: "'. map' 'title map' 'subtitle map' 'btn map' '. map'",
         }}
         columnGap={{
@@ -60,9 +67,16 @@ const MainSection = () => {
           xs: "100vh",
           md: "92vh",
         }}
+
       >
+
+
         <Box
           gridArea={"title"}
+          display={{
+            xs: "none",
+            sm: "block"
+          }}
           alignSelf={{
             xs: "end",
             sm: "end",
@@ -77,6 +91,10 @@ const MainSection = () => {
           </Typography>
         </Box>
         <Box
+          display={{
+            xs: "none",
+            sm: "block"
+          }}
           textAlign={{
             xs: "center",
             sm: "left",
@@ -89,6 +107,7 @@ const MainSection = () => {
           <Typography variant="h5">{subtitle}</Typography>
         </Box>
         <Box
+
           gridArea={"btn"}
           alignSelf={{
             xs: "start",
@@ -100,14 +119,38 @@ const MainSection = () => {
             sm: "left",
           }}
         >
-          <Button variant="contained">Comienza a crear</Button>
+          <Box gridArea={"fav"}>
+            <Fab variant="extended">
+              <NavigationIcon sx={{ mr: 1 }} />
+              Navigate
+            </Fab>
+          </Box>
+          <Box gridArea={"ButtonGroup"}>
+            <ButtonGroup variant="contained" size="large" aria-label="large button group" >
+              <Button>Estacion</Button>
+              <Button>Calles</Button>
+              <Button>Reservas</Button>
+            </ButtonGroup>
+          </Box>
+
         </Box>
 
         <Box
           gridArea={"map"}
-          sx={{
-            height: "100%"
+
+          marginTop={{
+            xs: "4rem",
+            sm: "0",
           }}
+          height={{
+            xs: "80vh",
+            sm: "100%"
+          }}
+          marginBottom={{
+            xs: "0rem",
+            sm: "0",
+          }}
+
           id="map"
         ></Box>
       </Box>
