@@ -9,6 +9,8 @@ import { Divider, Link, Menu, MenuItem, Typography } from "@mui/material";
 import { ReactNode, useState } from "react";
 import { MouseEvent } from "react";
 import NavLogo from "./NavLogo";
+import React from "react";
+
 
 
 
@@ -57,8 +59,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
-
+  
 
 
 
@@ -143,5 +144,6 @@ const NavMobile = ({
       </Box>
     );
   };
+}
 
-  export default NavMobile;
+

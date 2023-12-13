@@ -31,7 +31,7 @@ const MainSection = () => {
     markers.forEach(marca => {
 
       L.marker(marca).addTo(map)
-        .bindPopup('A pretty CSS popup.<br> Easily customizable.')
+        .bindPopup('Estacionamiento')
         .openPopup();
 
     })
@@ -56,7 +56,7 @@ const MainSection = () => {
         }}
         gridTemplateRows="auto"
         gridTemplateAreas={{
-          xs: "'map' 'Fav' 'ButtonGroup' 'btn'  ",
+          xs: "'map'  'ButtonGroup' 'btn'  ",
           sm: "'. map' 'title map' 'subtitle map' 'btn map' '. map'",
         }}
         columnGap={{
@@ -119,13 +119,12 @@ const MainSection = () => {
             sm: "left",
           }}
         >
-          <Box gridArea={"fav"}>
-            <Fab variant="extended">
-              <NavigationIcon sx={{ mr: 1 }} />
-              Navigate
-            </Fab>
-          </Box>
-          <Box gridArea={"ButtonGroup"}>
+
+          <Box gridArea={"ButtonGroup"}  
+            marginTop={{
+              xs: "0",
+              sm:"0",
+            }}>
             <ButtonGroup variant="contained" size="large" aria-label="large button group" >
               <Button>Estacion</Button>
               <Button>Calles</Button>
@@ -147,12 +146,15 @@ const MainSection = () => {
             sm: "100%"
           }}
           marginBottom={{
-            xs: "0rem",
+            xs: "0",
             sm: "0",
           }}
 
           id="map"
-        ></Box>
+        ><Fab variant="extended" sx={{ position: "absolute",   bottom: "16px", right: "16px" }}>
+            <NavigationIcon sx={{ mr: 1 }} />
+            Navigate
+          </Fab></Box>
       </Box>
     </Container>
   );
